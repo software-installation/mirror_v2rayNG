@@ -1,0 +1,2 @@
+# mirror_github_releases
+通过GitHub Action自动化同步仓库releases
