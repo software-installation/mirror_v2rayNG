@@ -11,11 +11,11 @@ SOURCE_REPO = os.environ['SOURCE_REPO']
 TARGET_REPO = os.environ.get('TARGET_REPO', os.environ['GITHUB_REPOSITORY'])
 GITHUB_TOKEN = os.environ['GITHUB_TOKEN']
 SOURCE_GITHUB_TOKEN = os.environ.get('SOURCE_GITHUB_TOKEN', GITHUB_TOKEN)
-SYNCED_DATA_FILE = 'synced_data.json'
+SYNCED_DATA_FILE = os.environ.get('SYNCED_DATA_FILE', 'synced_data.json')  # 同步状态文件路径（默认当前目录下synced_data.json）
 SYNCED_DATA_BACKUP = f"{SYNCED_DATA_FILE}.bak"
 SOURCE_OWNER, SOURCE_REPO_NAME = SOURCE_REPO.split('/')
-RETRY_COUNT = 3  # 上传重试次数
-RETRY_DELAY = 10  # 重试间隔（秒）
+RETRY_COUNT = int(os.environ.get('RETRY_COUNT', 3))  # 上传重试次数（默认3次）
+RETRY_DELAY = int(os.environ.get('RETRY_DELAY', 10))  # 重试间隔（秒，默认10秒）
 
 print(f"=== 配置信息 ===")
 print(f"源仓库: {SOURCE_REPO}")
