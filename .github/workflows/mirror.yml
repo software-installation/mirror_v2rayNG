@@ -1,4 +1,4 @@
-# .github/workflows/check-update.yml
+# .github/workflows/mirror.yml
 name: 同步release仓库：
 
 on:
